@@ -11,7 +11,8 @@ const app = {
   init: function () {
     return Immutable({
       model: {
-        volume: 0
+        volume: 0,
+        freqs: []
       },
       effect: {type: 'INIT', payload: null}
     })
@@ -19,8 +20,8 @@ const app = {
   update: function (model, action) {
     var newModel = Immutable(model)
     switch(action.type){
-      case 'SET_VOLUME':
-        newModel = newModel.set('volume', action.payload)
+      case 'SET_FREQS':
+        newModel = newModel.set('freqs', action.payload)
         break;
     }
     return {model: newModel.asMutable({deep: true})}
@@ -29,11 +30,15 @@ const app = {
     return html`<main>
       <div class='volume'>
         ${model.volume}
+        <svg height="400" width="500">
+          ${model.freqs.map(function(freq, index) {
+            return html`<line x1=${index} y1="0" x2=${index} y2=${freq} style="stroke:rgb(255,0,0);stroke-width:1" />`
+          })}
+        </svg>
       </div>
     </main>`
   },
   run: function (effect, sources) {
-    console.log(effect);
     switch(effect.type){
       case 'INIT': 
 
@@ -45,7 +50,7 @@ const app = {
       return pull(
         deferred,
         pull.map(function(num) {
-         return {type: 'SET_VOLUME', payload: num} 
+         return {type: 'SET_FREQS', payload: num} 
         })        
       )
     } 
