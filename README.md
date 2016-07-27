@@ -1,7 +1,6 @@
+# Inu FFt 
 
-# 
-
-example inu drum loop phun
+Example inu app that displays fft of microphone input.
 
 ## how
 
