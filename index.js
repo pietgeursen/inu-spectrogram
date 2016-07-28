@@ -6,6 +6,9 @@ import audio from 'read-audio'
 import unpack from 'ndarray-unpack'
 import freqs from 'ndsamples-frequencies'
 
+import createCanvas from './components/canvas'
+
+const Canvas = createCanvas({height: window.innerHeight, width: 512})
 
 const app = {
   init: function () {
@@ -26,13 +29,10 @@ const app = {
     return {model: newModel.asMutable({deep: true})}
   },
   view: function (model, dispatch) {
-    return html`<main>
-        <svg height="1000" width="500">
-          ${model.freqs.map(function(freq, index) {
-            return html`<line x1=${index} y1="0" x2=${index} y2=${freq} style="stroke:rgb(255,0,0);stroke-width:1" />`
-          })}
-        </svg>
-    </main>`
+    return html`
+      <main>
+        ${Canvas(model, dispatch)}
+      </main>`
   },
   run: function (effect, sources) {
     switch(effect.type){
@@ -43,6 +43,9 @@ const app = {
         var src =  pull(
           audio({source: source}),
           pull.map(freqs), 
+          pull.map(function(freqs) {
+           return freqs.hi(freqs.data.length / 2) 
+          }),
           pull.map(unpack)
         )
         deferred.resolve(src)

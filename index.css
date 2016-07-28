@@ -1,18 +1,4 @@
-.part {
-  text-align: center;
-  display: flex;
-  height: 5rem;
-  justify-content: space-around;
-}
-.note{
-  width: 4rem;
-  height: 4rem;
-  border-style: solid;
-  border-color: red;
-}
-.note.on{
-  background-color: black;
-}
-.note.playing {
-  border-color: black;
+document, body, main, .canvas-wrapper, canvas {
+  width: 100%;
+  height: 100%;
 }
