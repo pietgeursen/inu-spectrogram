@@ -1,16 +1,16 @@
-# Inu FFt 
+# Inu Spectrogram 
 
-Example inu app that displays the [`fft`](https://en.wikipedia.org/wiki/Fast_Fourier_transform) of the microphone input.
+Example inu app that displays the [`spectrogram`](https://en.wikipedia.org/wiki/Spectrogram) of the microphone input.
 
-## [Try it!](https://pietgeursen.github.io/inu-fft/)
+## [Try it!](https://pietgeursen.github.io/inu-spectrogram/)
 
 ## how
 
 ### install
 
 ```
-git clone https://github.com/pietgeursen/inu-fft
-cd inu-fft
+git clone https://github.com/pietgeursen/inu-spectrogram
+cd inu-spectrogram
 npm install
 ```
 
