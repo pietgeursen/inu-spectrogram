@@ -8,7 +8,7 @@ import freqs from 'ndsamples-frequencies'
 
 import createCanvas from './components/canvas'
 
-const Canvas = createCanvas({height: window.innerHeight, width: 512})
+const Canvas = createCanvas()
 
 const app = {
   init: function () {
@@ -43,9 +43,6 @@ const app = {
         var src =  pull(
           audio({source: source}),
           pull.map(freqs), 
-          pull.map(function(freqs) {
-           return freqs.hi(freqs.data.length / 2) 
-          }),
           pull.map(unpack)
         )
         deferred.resolve(src)
