@@ -2,6 +2,8 @@
 
 Example inu app that displays the [`fft`](https://en.wikipedia.org/wiki/Fast_Fourier_transform) of the microphone input.
 
+## [Try it!](https://pietgeursen.github.io/inu-fft/)
+
 ## how
 
 ### install
