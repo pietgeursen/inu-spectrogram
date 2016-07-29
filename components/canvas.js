@@ -3,7 +3,7 @@ import {html} from 'inu'
 module.exports = function createCanvas (options) {
   
   options = options || {height: 512, width: 512}
-  var el = html`<canvas height=${options.height}, width=${options.width} id="canvas"></canvas>`
+  var el = html`<canvas height=${options.height}, width=${options.width} style="height: ${window.innerHeight}px" id="canvas"></canvas>`
   var ctx = el.getContext("2d")
 
   var count = 0 

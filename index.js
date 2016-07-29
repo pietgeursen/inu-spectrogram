@@ -43,6 +43,9 @@ const app = {
         var src =  pull(
           audio({source: source}),
           pull.map(freqs), 
+          pull.map(function(freq) {
+           return freq.step(-1) 
+          }),
           pull.map(unpack)
         )
         deferred.resolve(src)
