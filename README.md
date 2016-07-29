@@ -1,4 +1,4 @@
-# [WIP] Inu Spectrogram 
+# Inu Spectrogram 
 
 Example inu app that displays the [`spectrogram`](https://en.wikipedia.org/wiki/Spectrogram) of the microphone input.
 
